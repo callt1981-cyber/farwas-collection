@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farwa's Collection — Fashion, Lingerie & Planters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500;1,9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F0E8;
+    --panel:#FBF6F0;
+    --ink:#33281F;
+    --ink-soft:#6E5F53;
+    --rose:#C1786A;
+    --rose-dark:#A9614F;
+    --blush:#E3B7AF;
+    --blush-deep:#B97F76;
+    --sage:#7E8A69;
+    --sage-deep:#5E6A4C;
+    --line: rgba(51,40,31,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{ font-family:'Fraunces', serif; font-weight:500; }
+  a{ text-decoration:none; color:inherit; }
+  img, .ph{ display:block; width:100%; height:100%; object-fit:cover; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* Placeholder photo blocks (swap with real photography) */
+  .ph{
+    background:
+      radial-gradient(120% 140% at 15% 10%, rgba(255,255,255,.55), transparent 55%),
+      linear-gradient(150deg, var(--p1,#e7d3c4), var(--p2,#cbb29d));
+    position:relative;
+    overflow:hidden;
+  }
+  .ph::after{
+    content:attr(data-label);
+    position:absolute; left:14px; bottom:12px;
+    font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.04em;
+    color:rgba(51,40,31,.55);
+  }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,240,232,0.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 0;
+  }
+  .logo{ font-size:21px; letter-spacing:.02em; white-space:nowrap; }
+  .logo em{ font-style:italic; }
+  .navlinks{ display:flex; gap:34px; font-size:15px; }
+  .navlinks a{ position:relative; padding-bottom:4px; color:var(--ink);}
+  .navlinks a.active::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--rose-dark);
+  }
+  .navlinks a:hover{ color:var(--rose-dark); }
+  .navicons{ display:flex; gap:20px; align-items:center; }
+  .navicons button{ background:none; border:none; cursor:pointer; color:var(--ink); }
+  .menu-btn{ display:none; background:none; border:none; font-size:22px; cursor:pointer; }
+
+  /* Hero */
+  .hero{
+    display:grid; grid-template-columns:1.05fr 1fr; align-items:center;
+    gap:48px; padding:76px 0 90px;
+  }
+  .hero h1{
+    font-size:clamp(40px,5.4vw,64px);
+    line-height:1.05;
+    font-style:italic;
+    max-width:9.6em;
+  }
+  .hero p{
+    margin-top:22px; font-size:17px; color:var(--ink-soft); max-width:34ch;
+  }
+  .btn{
+    display:inline-block; margin-top:30px;
+    background:var(--rose); color:#fff;
+    padding:14px 30px; border-radius:2px;
+    font-size:14.5px; letter-spacing:.03em;
+    transition:background .18s ease;
+  }
+  .btn:hover{ background:var(--rose-dark); }
+  .btn.outline{
+    background:transparent; border:1px solid var(--ink); color:var(--ink);
+  }
+  .btn.outline:hover{ background:var(--ink); color:var(--cream); }
+
+  .hero-art{ position:relative; aspect-ratio:5/4.1; border-radius:4px; }
+  .hero-art .ph{ height:100%; border-radius:4px; --p1:#efe1cf; --p2:#c9a98d; }
+  .hero-badge{
+    position:absolute; right:-14px; bottom:-26px;
+    background:var(--panel); border:1px solid var(--line);
+    padding:16px 20px; border-radius:3px; max-width:190px;
+    box-shadow:0 18px 30px -20px rgba(51,40,31,.35);
+  }
+  .hero-badge .serif{ font-size:15px; font-style:italic; }
+  .hero-badge span{ display:block; font-size:12px; color:var(--ink-soft); margin-top:2px; }
+
+  /* Category band */
+  .categories{ padding:0 0 84px; }
+  .cat-head{ text-align:center; margin-bottom:38px; }
+  .cat-head p{ color:var(--ink-soft); font-size:14.5px; margin-top:8px; }
+  .cat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .cat-card{
+    border:1px solid var(--line); border-radius:4px; overflow:hidden;
+    background:var(--panel);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .cat-card:hover{ transform:translateY(-4px); box-shadow:0 20px 34px -24px rgba(51,40,31,.4); }
+  .cat-card .ph{ aspect-ratio:4/3.3; }
+  .cat-body{ padding:22px 22px 26px; }
+  .cat-body h3{ font-size:21px; font-style:italic; }
+  .cat-body .tag{
+    display:inline-block; margin-top:6px; font-size:12px; letter-spacing:.05em;
+    color:#fff; padding:3px 10px; border-radius:20px;
+  }
+  .cat-body .go{ display:block; margin-top:14px; font-size:13.5px; color:var(--rose-dark); }
+  .cat-couture .tag{ background:var(--rose-dark); }
+  .cat-lingerie .tag{ background:var(--blush-deep); }
+  .cat-planters .tag{ background:var(--sage-deep); }
+
+  /* Featured */
+  .featured{ padding:0 0 100px; display:grid; grid-template-columns:.85fr 2.15fr; gap:40px; align-items:start; }
+  .featured .intro h2{ font-size:38px; font-style:italic; line-height:1.12; }
+  .featured .intro p{ margin-top:14px; color:var(--ink-soft); font-size:15px; }
+  .featured .intro .btn{ margin-top:26px; }
+  .prod-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .prod{ }
+  .prod .ph{ aspect-ratio:1/1.15; border-radius:3px; margin-bottom:12px; }
+  .prod h4{ font-size:14.5px; font-weight:500; font-family:'Jost',sans-serif; }
+  .prod .price{ font-size:13px; color:var(--rose-dark); margin-top:3px; }
+
+  /* Strip banner */
+  .strip{
+    background:var(--ink); color:var(--cream);
+    padding:60px 0; text-align:center;
+  }
+  .strip h2{ font-size:30px; font-style:italic; }
+  .strip p{ margin-top:10px; color:#D9CFC4; font-size:14.5px; }
+  .strip .btn{ margin-top:24px; }
+
+  /* Footer */
+  footer{ padding:64px 0 40px; }
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px;
+    padding-bottom:40px; border-bottom:1px solid var(--line);
+  }
+  .foot-grid h4{ font-size:13px; letter-spacing:.04em; margin-bottom:14px; color:var(--ink-soft); }
+  .foot-grid ul{ list-style:none; display:flex; flex-direction:column; gap:9px; font-size:14px; }
+  .foot-grid ul a:hover{ color:var(--rose-dark); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:22px;
+    font-size:13px; color:var(--ink-soft); flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:880px){
+    .navlinks{ display:none; }
+    .menu-btn{ display:block; }
+    .hero{ grid-template-columns:1fr; padding-top:44px; }
+    .hero-art{ order:-1; }
+    .hero-badge{ display:none; }
+    .cat-grid{ grid-template-columns:1fr; }
+    .featured{ grid-template-columns:1fr; }
+    .prod-grid{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo serif" href="#top">FARWA'S <em>COLLECTION</em></a>
+    <nav class="navlinks">
+      <a href="#top" class="active">Home</a>
+      <a href="#couture">Couture</a>
+      <a href="#lingerie">Velvet Curves</a>
+      <a href="#planters">Fairy Flora</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="navicons">
+      <button aria-label="Wishlist">♡</button>
+      <button aria-label="Cart">⌂</button>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section id="top" class="wrap hero">
+  <div>
+    <h1 class="serif">Elevate your<br>style &amp; home</h1>
+    <p>Three worlds under one name — refined ready-to-wear, intimate essentials, and greenery for the spaces in between.</p>
+    <a href="#couture" class="btn">Shop Now</a>
+  </div>
+  <div class="hero-art">
+    <div class="ph" style="--p1:#f0ddc7;--p2:#c79f83;" data-label="lookbook — autumn"></div>
+    <div class="hero-badge">
+      <div class="serif">New in</div>
+      <span>Fairy Flora planters, restocked this week</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap categories">
+  <div class="cat-head">
+    <h2 class="serif" style="font-size:32px; font-style:italic;">Shop by world</h2>
+    <p>Three names, one house</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card cat-couture" id="couture" href="#">
+      <div class="ph" style="--p1:#f1e2cf;--p2:#d8b697;" data-label="couture"></div>
+      <div class="cat-body">
+        <h3 class="serif">Farwa's Couture</h3>
+        <span class="tag">Women's Fashion</span>
+        <span class="go">Shop clothing →</span>
+      </div>
+    </a>
+    <a class="cat-card cat-lingerie" id="lingerie" href="#">
+      <div class="ph" style="--p1:#f3d9d3;--p2:#d9a39a;" data-label="velvet curves"></div>
+      <div class="cat-body">
+        <h3 class="serif">Velvet Curves</h3>
+        <span class="tag">Lingerie</span>
+        <span class="go">Shop lingerie →</span>
+      </div>
+    </a>
+    <a class="cat-card cat-planters" id="planters" href="#">
+      <div class="ph" style="--p1:#dde3cf;--p2:#a9b58c;" data-label="fairy flora"></div>
+      <div class="cat-body">
+        <h3 class="serif">Fairy Flora</h3>
+        <span class="tag">Planters</span>
+        <span class="go">Shop planters →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="wrap featured">
+  <div class="intro">
+    <h2 class="serif">Featured<br>favorites</h2>
+    <p>Best-sellers pulled from all three collections this month.</p>
+    <a href="#" class="btn outline">Browse all</a>
+  </div>
+  <div class="prod-grid">
+    <div class="prod">
+      <div class="ph" style="--p1:#f1ddd9;--p2:#dba99c;" data-label="couture"></div>
+      <h4>Floral Midi Dress</h4>
+      <div class="price">Farwa's Couture</div>
+    </div>
+    <div class="prod">
+      <div class="ph" style="--p1:#f3ddd0;--p2:#d9a89b;" data-label="velvet curves"></div>
+      <h4>Silk Robe Set</h4>
+      <div class="price">Velvet Curves</div>
+    </div>
+    <div class="prod">
+      <div class="ph" style="--p1:#e3e6d5;--p2:#aeb98f;" data-label="fairy flora"></div>
+      <h4>Ceramic Plant Stand</h4>
+      <div class="price">Fairy Flora</div>
+    </div>
+    <div class="prod">
+      <div class="ph" style="--p1:#dee3d0;--p2:#a3b085;" data-label="fairy flora"></div>
+      <h4>Macramé Hanging Planter</h4>
+      <div class="price">Fairy Flora</div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <h2 class="serif">Join the Farwa's list</h2>
+    <p>First look at new couture drops, lingerie restocks, and planter arrivals.</p>
+    <a href="#" class="btn">Sign up</a>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4 class="serif" style="font-size:18px; font-style:italic; color:var(--ink);">Farwa's Collection</h4>
+        <p style="margin-top:10px; font-size:14px; color:var(--ink-soft); max-width:32ch;">
+          A small house bringing together fashion, lingerie, and home greenery — chosen with the same eye.
+        </p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#couture">Farwa's Couture</a></li>
+          <li><a href="#lingerie">Velvet Curves</a></li>
+          <li><a href="#planters">Fairy Flora</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Size guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Farwa's Collection. All rights reserved.</span>
+      <span>Karachi, Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
